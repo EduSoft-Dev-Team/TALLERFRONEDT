@@ -1,17 +1,43 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Color Random</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Random 🎨</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>Fondo aleatorio 🎨</h1>
-    <button id="btn">Cambiar color</button>
-  </div>
+    <main class="container">
 
-  <script src="script.js"></script>
+        <div class="icon">🎨</div>
+
+        <h1>Fondo aleatorio</h1>
+
+        <p class="description">
+            Genera un nuevo color para el fondo con un solo clic.
+        </p>
+
+        <div class="color-preview">
+            <span>Color actual</span>
+            <strong id="colorCode">#FFFFFF</strong>
+        </div>
+
+        <button id="btn">
+            <span>✨</span>
+            Cambiar color
+        </button>
+
+        <p class="counter">
+            Cambios realizados: <strong id="counter">0</strong>
+        </p>
+
+    </main>
+
+    <script src="Scrip.js"></script>
 </body>
 </html>
+```
