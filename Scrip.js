@@ -1,4 +1,4 @@
-```javascript
+
 const button = document.getElementById("btn");
 const colorCode = document.getElementById("colorCode");
 const counterElement = document.getElementById("counter");
@@ -30,4 +30,3 @@ button.addEventListener("click", () => {
 
     counterElement.textContent = counter;
 });
-```
