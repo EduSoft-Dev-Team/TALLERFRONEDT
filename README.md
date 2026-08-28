@@ -2,21 +2,31 @@
 
 ## 📌 Descripción
 
-Repositorio correspondiente al taller práctico de desarrollo frontend y control de versiones, desarrollado como ejercicio académico para aplicar buenas prácticas de trabajo colaborativo utilizando **Git y Git Flow**.
+Repositorio correspondiente al taller práctico de desarrollo frontend y control de versiones, realizado como actividad académica para aplicar buenas prácticas de trabajo colaborativo utilizando **Git, GitHub y Git Flow**.
 
-Durante el desarrollo de la actividad se trabajó con HTML, CSS y JavaScript, aplicando un flujo de trabajo basado en ramas para gestionar funcionalidades, errores, conflictos de integración y correcciones mediante `hotfix`.
+Durante el desarrollo se trabajó con **HTML5, CSS3 y JavaScript**, aplicando un flujo de trabajo basado en ramas para gestionar funcionalidades, integración de cambios, generación y resolución de conflictos, corrección de errores mediante `hotfix` y control de versiones mediante etiquetas.
 
-El ejercicio permitió simular un escenario real en el que un error llega a la rama principal y posteriormente debe ser corregido mediante un proceso controlado de mantenimiento.
+La práctica permitió simular un escenario de desarrollo en el que se introduce un error de forma controlada, se integra dentro del flujo de trabajo y posteriormente se corrige mediante una rama `hotfix`.
 
 ---
 
 ## 🎯 Objetivo
 
-Aplicar de manera práctica y organizada la metodología **Git Flow** para gestionar el ciclo de desarrollo de un proyecto frontend, utilizando ramas, commits, integración de cambios, resolución de conflictos, correcciones mediante `hotfix`, etiquetado de versiones y sincronización con un repositorio remoto.
+Aplicar de manera práctica la metodología **Git Flow** para gestionar el ciclo de desarrollo de un proyecto frontend, utilizando:
+
+* Ramas principales.
+* Ramas `feature`.
+* Ramas `hotfix`.
+* Commits descriptivos.
+* Integración mediante `merge`.
+* Resolución de conflictos.
+* Etiquetas de versión.
+* Sincronización con GitHub.
+* Trabajo colaborativo.
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## 🛠️ Tecnologías y herramientas
 
 * HTML5
 * CSS3
@@ -41,46 +51,58 @@ TALLERFRONEDT/
 
 ### Archivos principales
 
-| Archivo      | Descripción                                             |
-| ------------ | ------------------------------------------------------- |
-| `index.html` | Estructura principal de la aplicación                   |
-| `style.css`  | Estilos y diseño visual                                 |
-| `script.js`  | Lógica para generación de colores aleatorios y contador |
-| `README.md`  | Documentación del proyecto y del flujo Git Flow         |
+| Archivo      | Descripción                                              |
+| ------------ | -------------------------------------------------------- |
+| `index.html` | Estructura principal de la aplicación.                   |
+| `style.css`  | Estilos y diseño visual de la aplicación.                |
+| `script.js`  | Lógica JavaScript para la funcionalidad del proyecto.    |
+| `README.md`  | Documentación del proyecto y de la práctica de Git Flow. |
 
 ---
 
 # 🌿 Estrategia de ramas
 
-Para el desarrollo se utilizó una estructura basada en Git Flow:
+Durante la práctica se utilizó una estructura basada en Git Flow:
 
 ```text
 main
-  │
-  ├── develop
-  │     │
-  │     └── feature/error-estilos
-  │
-  └── hotfix/corregir-estilos
+ │
+ └── develop
+      │
+      └── feature/generacion-error
+
+hotfix/corregir-estilos
 ```
 
 ### Ramas principales
 
 #### `main`
 
-Contiene las versiones estables del proyecto y representa el código listo para ser considerado como versión funcional.
+Representa la rama principal del proyecto y contiene las versiones consideradas estables.
 
 #### `develop`
 
-Rama utilizada para integrar y consolidar los cambios realizados durante el desarrollo.
+Rama utilizada para integrar y consolidar los cambios realizados durante el desarrollo antes de llevarlos a `main`.
 
 #### `feature/*`
 
-Ramas destinadas al desarrollo de funcionalidades o modificaciones específicas sin afectar directamente las ramas principales.
+Ramas utilizadas para desarrollar funcionalidades o realizar modificaciones específicas sin afectar directamente las ramas principales.
+
+Durante la práctica se utilizó:
+
+```text
+feature/generacion-error
+```
 
 #### `hotfix/*`
 
-Ramas utilizadas para solucionar errores críticos detectados en una versión estable.
+Ramas utilizadas para corregir errores detectados en una versión estable del proyecto.
+
+Durante la práctica se utilizó:
+
+```text
+hotfix/corregir-estilos
+```
 
 ---
 
@@ -88,42 +110,40 @@ Ramas utilizadas para solucionar errores críticos detectados en una versión es
 
 ## 1. Preparación del repositorio
 
-Se verificó la existencia de las ramas principales:
+Se verificaron las ramas disponibles y el estado del repositorio mediante comandos de Git.
 
 ```bash
 git branch
+git status
+git fetch origin
 ```
 
-Se trabajó principalmente con:
+Las ramas principales utilizadas fueron:
 
 ```text
 main
 develop
 ```
 
-Antes de realizar modificaciones se sincronizó el repositorio con GitHub.
+Antes de realizar modificaciones se verificó la sincronización con el repositorio remoto.
 
 ---
 
 ## 2. Creación de la rama Feature
 
-Para introducir un error controlado se creó la rama:
+Para realizar una modificación controlada se creó una rama independiente:
 
 ```bash
-git checkout -b feature/error-estilos
+git checkout -b feature/generacion-error
 ```
 
-Esta rama permitió realizar el cambio sin modificar inicialmente las ramas principales.
+La rama permitió realizar cambios sin modificar directamente las ramas principales.
 
 ---
 
 ## 3. Introducción de un error controlado
 
-El archivo modificado fue:
-
-```text
-index.html
-```
+Como parte de la práctica se introdujo intencionalmente un error en `index.html`.
 
 La referencia correcta de la hoja de estilos era:
 
@@ -131,15 +151,15 @@ La referencia correcta de la hoja de estilos era:
 <link rel="stylesheet" href="style.css">
 ```
 
-Para simular un error se modificó a:
+Para generar el error de forma controlada se modificó la referencia:
 
 ```html
 <link rel="stylesheet" href="estilos.css">
 ```
 
-El archivo `estilos.css` no existía, provocando que la página dejara de cargar correctamente los estilos.
+El archivo `estilos.css` no existía dentro del proyecto, provocando que la página dejara de cargar correctamente los estilos.
 
-### Commit realizado
+El cambio quedó registrado mediante el commit:
 
 ```text
 01f2244
@@ -148,88 +168,50 @@ test: introducir error en referencia de estilo
 
 ---
 
-# ⚠️ 4. Integración y generación de conflicto
+# ⚠️ 4. Integración del cambio y generación del conflicto
 
-Se intentó integrar la rama:
+Durante la práctica se realizaron integraciones entre las ramas mediante `merge`.
 
-```text
-feature/error-estilos
-```
+El cambio que contenía el error fue integrado dentro del flujo de desarrollo, generando posteriormente diferencias que permitieron practicar la resolución de conflictos.
 
-en:
-
-```text
-main
-```
-
-mediante:
-
-```bash
-git checkout main
-git pull origin main
-git merge feature/error-estilos
-```
-
-Durante el proceso Git detectó un conflicto en:
-
-```text
-index.html
-```
-
-Git informó:
-
-```text
-CONFLICT (content): Merge conflict in index.html
-Automatic merge failed; fix conflicts and then commit the result.
-```
-
-Esto permitió practicar la identificación y resolución manual de conflictos.
-
----
-
-## 5. Resolución del conflicto
-
-Se revisó el archivo `index.html`, se analizaron las diferencias entre las ramas y se eliminaron los marcadores de conflicto generados por Git.
-
-Posteriormente se confirmó la resolución:
-
-```bash
-git add index.html
-git commit -m "merge: integrar error de estilos en main"
-```
-
-### Commit del merge
+Uno de los commits relacionados con esta etapa fue:
 
 ```text
 f7d6868
 merge: integrar error de estilos en main
 ```
 
-De esta manera, el error quedó integrado intencionalmente en `main` para simular un problema detectado en una versión estable.
+El archivo involucrado fue:
+
+```text
+index.html
+```
+
+Este proceso permitió practicar la identificación de cambios provenientes de diferentes ramas y su integración mediante Git.
 
 ---
 
-# 🚨 6. Creación del Hotfix
+# 🔧 5. Corrección del error mediante Hotfix
 
-Al identificar el problema en `main`, se utilizó Git Flow para generar una rama específica de corrección:
+Después de identificar el problema en la versión estable, se utilizó Git Flow para crear una rama específica de corrección:
 
 ```bash
 git flow hotfix start corregir-estilos
 ```
 
-Se creó:
+Se creó la rama:
 
 ```text
 hotfix/corregir-estilos
 ```
 
-El objetivo de esta rama fue solucionar el error sin realizar modificaciones directas sobre `main`.
+El objetivo de esta rama fue solucionar el error sin realizar directamente la modificación sobre `main`.
 
 ---
 
-# 🔧 7. Corrección del error
+## 6. Corrección de la referencia de estilos
 
-Se modificó nuevamente `index.html`.
+Se modificó `index.html` para restablecer la referencia correcta hacia la hoja de estilos.
 
 ### Referencia incorrecta
 
@@ -243,9 +225,15 @@ Se modificó nuevamente `index.html`.
 <link rel="stylesheet" href="style.css">
 ```
 
-Con esto se restableció la conexión correcta entre `index.html` y `style.css`.
+De esta manera se restableció la conexión correcta entre:
 
-### Commit de corrección
+```text
+index.html
+    │
+    └── style.css
+```
+
+La corrección quedó registrada mediante el commit:
 
 ```text
 451061d
@@ -254,131 +242,281 @@ fix: corregir referencia de hoja de estilos
 
 ---
 
-# 🔀 8. Finalización del Hotfix
+# 🔀 7. Finalización del Hotfix
 
-Una vez realizada la corrección se utilizó:
+Una vez realizada la corrección se utilizó Git Flow para finalizar el proceso:
 
 ```bash
 git flow hotfix finish corregir-estilos
 ```
 
-Git Flow realizó la integración correspondiente y actualizó las ramas principales.
+La corrección fue integrada dentro del flujo correspondiente del proyecto.
 
-La corrección quedó registrada en:
+Durante este proceso se realizaron las integraciones necesarias entre las ramas principales.
+
+Posteriormente se realizaron diferentes merges entre `main` y `develop`, los cuales quedaron registrados en el historial del repositorio.
+
+Entre ellos se encuentran:
 
 ```text
-main
-develop
+8b15671
+merge: integrar main en develop
+```
+
+y:
+
+```text
+9a68978
+Merge branch 'main' into develop
 ```
 
 ---
 
-# 🏷️ 9. Etiquetado de la corrección
+# 🏷️ 8. Etiquetas de versión
 
-Durante la finalización del Hotfix se creó el tag:
+Durante la práctica se utilizaron etiquetas para identificar puntos importantes del historial.
+
+Las etiquetas existentes en el repositorio son:
 
 ```text
+1.0.0
 corregir-estilos
 ```
 
-Este tag permite identificar de manera concreta la versión que contiene la corrección realizada.
+### Tag `corregir-estilos`
 
-Para sincronizarlo con GitHub se utilizó:
+Identifica el punto del historial relacionado con la corrección del error de referencia de la hoja de estilos.
+
+### Tag `1.0.0`
+
+Identifica una versión estable del proyecto.
+
+Las etiquetas pueden consultarse mediante:
 
 ```bash
-git push origin corregir-estilos
+git tag
 ```
 
 ---
 
-# ☁️ 10. Sincronización con GitHub
+# ☁️ 9. Sincronización con GitHub
 
-Se actualizaron las ramas principales:
-
-```bash
-git push origin main
-git push origin develop
-```
-
-También se realizó:
+Durante el desarrollo se utilizaron diferentes comandos para mantener sincronizado el repositorio local con GitHub:
 
 ```bash
 git fetch origin
+git pull origin develop
+git push origin develop
+git pull origin main
+git push origin main
 ```
 
-para verificar el estado del repositorio remoto.
+También se verificó la configuración del repositorio remoto mediante:
 
-Durante el proceso se presentó una diferencia entre el `develop` local y el remoto, por lo que fue necesario integrar los cambios remotos antes de realizar el `push`.
+```bash
+git remote -v
+```
 
-Esto permitió practicar también la sincronización de ramas cuando existen cambios realizados por diferentes integrantes.
-
----
-
-# 🧹 11. Limpieza de ramas
-
-Una vez finalizado el ejercicio, la rama temporal:
+El repositorio remoto utilizado actualmente es:
 
 ```text
-feature/error-estilos
-```
-
-dejó de ser necesaria.
-
-Se eliminó localmente:
-
-```bash
-git branch -d feature/error-estilos
-```
-
-Y posteriormente del repositorio remoto:
-
-```bash
-git push origin --delete feature/error-estilos
+https://github.com/EduSoft-Dev-Team/TALLERFRONEDT.git
 ```
 
 ---
 
-# ✅ Estado final del repositorio
+# 🔄 10. Actualización de Develop
 
-Al finalizar la práctica se verificó que el repositorio estuviera limpio:
+Durante la práctica se realizaron integraciones entre diferentes versiones del proyecto.
+
+El historial muestra diferentes commits de merge relacionados con la actualización de `develop`.
+
+Entre ellos se encuentra:
+
+```text
+df29195
+Merge branch 'develop' of https://github.com/arenasmarce/TALLERFRONEDT into develop
+```
+
+Posteriormente se agregó la documentación y se organizó la estructura final del proyecto mediante:
+
+```text
+954cf52
+docs: agregar README y organizar estructura del proyecto
+```
+
+Este commit incorporó el `README.md` y realizó la organización correspondiente de los archivos del proyecto.
+
+---
+
+# 📚 11. Documentación del proyecto
+
+El archivo `README.md` fue incorporado a `develop` mediante el commit:
+
+```text
+954cf52
+docs: agregar README y organizar estructura del proyecto
+```
+
+Posteriormente, `develop` fue integrado nuevamente en `main`.
+
+Durante esta integración se presentó un conflicto de tipo `add/add` debido a que existían diferentes versiones del archivo `README.md`.
+
+Git informó:
+
+```text
+CONFLICT (add/add): Merge conflict in README.md
+```
+
+El conflicto fue resuelto seleccionando la versión correspondiente de `develop`:
 
 ```bash
-git status
+git checkout --theirs README.md
+```
+
+Posteriormente se agregó el archivo:
+
+```bash
+git add README.md
+```
+
+Y se finalizó el merge mediante:
+
+```bash
+git commit -m "merge: integrar develop en main"
+```
+
+El merge final quedó registrado como:
+
+```text
+9061763
+merge: integrar develop en main
+```
+
+---
+
+# 🚀 12. Integración final de Develop en Main
+
+Después de completar el proceso de desarrollo y documentación, se realizó la integración final:
+
+```bash
+git checkout main
+git merge develop
+```
+
+Una vez resuelto el conflicto del `README.md`, se creó el commit:
+
+```text
+9061763
+merge: integrar develop en main
+```
+
+Finalmente se sincronizó `main` con GitHub:
+
+```bash
+git push origin main
 ```
 
 Resultado:
 
 ```text
+3ac17bf..9061763  main -> main
+```
+
+De esta manera, la rama `main` quedó actualizada con los cambios desarrollados en `develop`.
+
+---
+
+# 📁 13. Estado final del proyecto
+
+Al finalizar la práctica, tanto `develop` como `main` contienen la estructura principal del proyecto:
+
+```text
+README.md
+index.html
+script.js
+style.css
+```
+
+La rama `develop` quedó sincronizada con:
+
+```text
+954cf52
+docs: agregar README y organizar estructura del proyecto
+```
+
+La rama `main` quedó sincronizada con:
+
+```text
+9061763
+merge: integrar develop en main
+```
+
+---
+
+# 🧹 14. Verificación del estado del repositorio
+
+Se verificó el estado del repositorio mediante:
+
+```bash
+git status
+```
+
+El resultado final fue:
+
+```text
 nothing to commit, working tree clean
 ```
 
-Las ramas principales quedaron:
+Esto indica que no quedaron cambios pendientes en el directorio de trabajo.
 
-```text
-develop
-main
+También se verificó la estructura de archivos mediante:
+
+```bash
+git ls-tree -r develop --name-only
 ```
 
-Y se conservó el tag:
+Resultado:
 
 ```text
+README.md
+index.html
+script.js
+style.css
+```
+
+Y las etiquetas existentes mediante:
+
+```bash
+git tag
+```
+
+Resultado:
+
+```text
+1.0.0
 corregir-estilos
 ```
 
 ---
 
-# 📊 Trazabilidad de commits
+# 📊 Trazabilidad de commits principales
 
-| Commit    | Tipo    | Descripción                            |
-| --------- | ------- | -------------------------------------- |
-| `7940661` | Initial | Creación inicial del taller            |
-| `cacdcee` | Feature | Creación de HTML, JavaScript y estilos |
-| `206d7db` | Feature | Mejoras en archivos del proyecto       |
-| `1041d08` | Feature | Agregado de funcionalidad              |
-| `0940776` | Docs    | Actualización de documentación         |
-| `01f2244` | Test    | Introducción controlada del error      |
-| `f7d6868` | Merge   | Integración de la rama con conflicto   |
-| `451061d` | Fix     | Corrección de referencia de estilos    |
+| Commit    | Tipo    | Descripción                                                       |
+| --------- | ------- | ----------------------------------------------------------------- |
+| `7940661` | Initial | Creación inicial del taller.                                      |
+| `cacdcee` | Feature | Creación inicial de HTML, JavaScript y estilos.                   |
+| `206d7db` | Feature | Mejoras en los archivos del proyecto.                             |
+| `1041d08` | Feature | Agregado de funcionalidad para eliminación de productos.          |
+| `0940776` | Docs    | Actualización de documentación de la versión 1.0.0.               |
+| `01f2244` | Test    | Introducción controlada del error en la referencia de estilos.    |
+| `f7d6868` | Merge   | Integración del cambio que contenía el error de estilos.          |
+| `451061d` | Fix     | Corrección de la referencia de la hoja de estilos.                |
+| `8b15671` | Merge   | Integración de cambios de `main` en `develop`.                    |
+| `9a68978` | Merge   | Integración de `main` en `develop`.                               |
+| `df29195` | Merge   | Integración de cambios dentro de `develop`.                       |
+| `954cf52` | Docs    | Agregado del README y organización de la estructura del proyecto. |
+| `9061763` | Merge   | Integración final de `develop` en `main`.                         |
 
 ---
 
@@ -394,29 +532,38 @@ Durante el taller se aplicaron los siguientes conceptos:
 * [x] Realización de commits.
 * [x] Uso de mensajes de commit descriptivos.
 * [x] Integración mediante `merge`.
-* [x] Generación de un conflicto real.
+* [x] Introducción controlada de errores.
+* [x] Generación de conflictos.
 * [x] Resolución manual de conflictos.
 * [x] Corrección de errores mediante `hotfix`.
-* [x] Integración del hotfix en las ramas principales.
+* [x] Integración de cambios entre ramas.
 * [x] Creación de tags.
 * [x] Sincronización con GitHub.
-* [x] Eliminación de ramas temporales.
-* [x] Verificación del estado final del repositorio.
+* [x] Uso de `fetch`, `pull` y `push`.
+* [x] Verificación del estado del repositorio.
+* [x] Integración final de `develop` en `main`.
+* [x] Documentación del flujo de trabajo.
 
 ---
 
 # 🎓 Resultado de aprendizaje
 
-La práctica permitió comprender y aplicar un flujo de trabajo colaborativo basado en Git Flow, fortaleciendo el manejo de ramas, integración de cambios, resolución de conflictos y mantenimiento de versiones.
+La práctica permitió comprender y aplicar un flujo de trabajo colaborativo basado en **Git Flow**, fortaleciendo el manejo de ramas, commits, integración de cambios, generación y resolución de conflictos, corrección de errores y control de versiones.
 
-El ejercicio también permitió simular una situación cercana a un entorno profesional de desarrollo, donde un error puede ser detectado después de que una modificación ha sido integrada a una versión estable y debe ser corregido mediante un proceso controlado de `hotfix`.
+El ejercicio permitió simular un escenario cercano a un entorno profesional de desarrollo, donde diferentes cambios son desarrollados en ramas independientes y posteriormente integrados de manera controlada.
+
+También permitió comprender la importancia de mantener sincronizados los repositorios locales y remotos, documentar los cambios realizados y utilizar etiquetas para identificar versiones importantes del proyecto.
 
 ---
 
-## 👨‍💻 Información académica
+# 👨‍💻 Información académica
 
 **Proyecto:** Taller Frontend — Git Flow
+
 **Tecnologías:** HTML5, CSS3, JavaScript
+
 **Control de versiones:** Git / GitHub
+
 **Metodología:** Git Flow
+
 **Tipo de actividad:** Práctica académica
